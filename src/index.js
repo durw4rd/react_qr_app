@@ -7,13 +7,13 @@ import { asyncWithLDProvider } from "launchdarkly-react-client-sdk";
 import { deviceType, osName } from "react-device-detect";
 import getUserId from "./util/getUserId";
 
-const CLIENTKEY = "609ead905193530d7c28647b";
+// const CLIENTKEY = "634693ac7c433210d563eddb";
 
 let id = getUserId();
 
 (async () => {
   const LDProvider = await asyncWithLDProvider({
-    clientSideID: CLIENTKEY,
+    clientSideID: process.env.REACT_APP_CLIENT_KEY,
     user: {
       key: id,
       //dynamically set these custom attributes using the deviceType and osName selectors from the npm package
